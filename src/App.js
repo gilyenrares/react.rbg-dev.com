@@ -5,7 +5,7 @@ import Services from './components/pages/Services/Services';
 import Products from './components/pages/Products/Products';
 import SignUp from './components/pages/SignUp/SignUp';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navigation';
 import Footer from './components/pages/Footer.js/Footer';
 
 function App() {

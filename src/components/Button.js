@@ -1,19 +1,16 @@
 import React from 'react';
 import './Button.css';
 
-const STYLES = ['btn--primary', 'btn--outline'];
+const STYLES = ['btn--primary', 'btn--secondary', 'btn--success', 'btn--danger', 'btn--warning', 'btn--info', 'btn--light', 'btn--dark'];
 
-const SIZES = ['btn--medium', 'btn--large', 'btn--mobile', 'btn--wide'];
-
-const COLOR = ['primary', 'blue', 'red', 'green'];
+const SIZES = ['btn--small', 'btn--medium', 'btn--large', 'btn--wide'];
 
 export const Button = ({
   children,
   type,
   onClick,
   buttonStyle,
-  buttonSize,
-  buttonColor
+  buttonSize
 }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle)
     ? buttonStyle
@@ -21,14 +18,15 @@ export const Button = ({
 
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-  const checkButtonColor = COLOR.includes(buttonColor) ? buttonColor : null;
-
   return (
     <button
-      className={`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`}
+      className={`btn--custom ${checkButtonStyle} ${checkButtonSize} `}
       onClick={onClick}
       type={type}
-    >
+    ><span></span>
+    <span></span>
+    <span></span>
+    <span></span>
       {children}
     </button>
   );

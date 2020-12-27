@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
-import { MdFingerprint } from 'react-icons/md';
+import './Navigation.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
+import { Navbar } from 'react-bootstrap';
 
-function Navbar() {
+function Navigation() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -33,12 +33,16 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <nav className='navbar'>
-          <div className='navbar-container container'>
-            <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-              <MdFingerprint className='navbar-icon' />
-              LAVISH
-            </Link>
+        <Navbar className='navbar--custom sticky-top'>
+              <Navbar.Brand href="/" onClick={closeMobileMenu}>
+                <img
+                  alt="infinity logo"
+                  src="../images/logo.png"
+                  className="d-inline-block align-top navbar-icon"
+                />
+                RBG-DEV
+              </Navbar.Brand>
+            
             <div className='menu-icon' onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </div>
@@ -46,6 +50,15 @@ function Navbar() {
               <li className='nav-item'>
                 <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                   Home
+                </Link>
+              </li>
+              <li className='nav-item'>
+                <Link
+                  to='/about'
+                  className='nav-links'
+                  onClick={closeMobileMenu}
+                >
+                  About
                 </Link>
               </li>
               <li className='nav-item'>
@@ -59,23 +72,32 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/products'
+                  to='/projects'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
-                  Products
+                  Projects
+                </Link>
+              </li>
+              <li className='nav-item'>
+                <Link
+                  to='/contact'
+                  className='nav-links'
+                  onClick={closeMobileMenu}
+                >
+                  Contact
                 </Link>
               </li>
               <li className='nav-btn'>
                 {button ? (
-                  <Link to='/sign-up' className='btn-link'>
-                    <Button buttonStyle='btn--outline'>SIGN UP</Button>
+                  <Link to='/sign-up'>
+                    <Button buttonStyle='btn--danger' buttonSize='btn--medium'>SIGN UP</Button>
                   </Link>
                 ) : (
-                  <Link to='/sign-up' className='btn-link'>
+                  <Link to='/sign-up'>
                     <Button
-                      buttonStyle='btn--outline'
-                      buttonSize='btn--mobile'
+                      buttonStyle='btn--danger'
+                      buttonSize='btn--wide'
                       onClick={closeMobileMenu}
                     >
                       SIGN UP
@@ -84,11 +106,10 @@ function Navbar() {
                 )}
               </li>
             </ul>
-          </div>
-        </nav>
+        </Navbar>
       </IconContext.Provider>
     </>
   );
 }
 
-export default Navbar;
+export default Navigation;
