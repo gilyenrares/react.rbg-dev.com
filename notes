@@ -8,3 +8,37 @@
 9 dark blue
 10 purple
 11 pink
+
+js
+
+function angle() {
+	var w = $(window).width();
+	var h = $(".shape").height();
+	$('.top').css('border-left-width', w  );
+	$('.top').css('border-top-width', h - 200 );
+  $('.top').css('border-bottom-width',  200 );
+}
+
+$(document).ready(function(){
+
+	$(window).bind("load", function(){
+		angle();
+	});
+
+	$(window).resize(function(){
+		angle();
+	});
+
+});
+
+
+
+css
+border-style: solid;
+  border-color: #ff0000 #00ff00 #0000ff;
+  border-top-width: 100px;
+  border-bottom-width: 50px;
+  border-left-width: 2020px;
+  border-right-width: 0px;
+ 
+  <a href='https://www.freepik.com/vectors/background'>Background vector created by starline - www.freepik.com</a>

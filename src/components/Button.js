@@ -5,6 +5,7 @@ const STYLES = ['btn--primary', 'btn--secondary', 'btn--success', 'btn--danger',
 
 const SIZES = ['btn--small', 'btn--medium', 'btn--large', 'btn--wide'];
 
+
 export const Button = ({
   children,
   type,
@@ -17,7 +18,7 @@ export const Button = ({
     : STYLES[0];
 
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
-
+  
   return (
     <button
       className={`btn--custom ${checkButtonStyle} ${checkButtonSize} `}
